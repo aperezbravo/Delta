@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 {
     int sockfd, numbytes;  
     char buf[MAXDATASIZE];
+    //addrinfo is he C data structure used to represent addresses and hostnames within the networking API 
     struct addrinfo hints, *servinfo, *p;
     int rv;
     char s[INET6_ADDRSTRLEN];
@@ -43,6 +44,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
+    //The memset() function fills the first n bytes of the memory area pointed to by s with the constant byte c.
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
