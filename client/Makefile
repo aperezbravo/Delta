@@ -1,5 +1,5 @@
-server2: socket.c
-	gcc -o socket socket.c 
+server2: message.c
+	gcc -o message message.c 
 
 clean:
-	rm socket 
+	rm message 
