@@ -17,13 +17,13 @@
 #include <sys/wait.h>
 #include <signal.h>
 
-#define SERVER "192.168.254.200"
+#define SERVER "192.168.254.63"
 
 #define PORT 3490
 
 #define BACKLOG 10   // how many pending connections queue will hold
 
-#define MAXDATASIZE 100 //number of bytes
+#define MAXDATASIZE 100//number of bytes
 
 
 int main(void)
@@ -61,6 +61,9 @@ int main(void)
 	int bytes_sent = sendto(socketfd, buf, MAXDATASIZE - 1, 0, (struct sockaddr *) &server, length);
 
 	fprintf(stdout, "number of bytes sent %d\n", bytes_sent);
+
+	//wait for server to send one frame at a time
+	//recvfrom(socketfd, (char *) buf, MAXDATASIZE - 1, 0, (struct sockaddr *) &server, &length);
 
 	/*socklen_t addrlen;
 	struct sockaddr_in host2, client;
