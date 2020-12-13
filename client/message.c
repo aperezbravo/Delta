@@ -29,7 +29,7 @@
 int main(void)
 {
 	int socketfd = socket(AF_INET, SOCK_DGRAM, 0);
-	char buf[MAXDATASIZE];
+	char buf[MAXDATASIZE] = "hello world";
 	struct sockaddr_in server;
 
 	if(socketfd == -1)
@@ -57,9 +57,10 @@ int main(void)
 	server.sin_family = AF_INET;
 	server.sin_port = htons(PORT);
 	int length = sizeof(server);
-	
 
-	sendto(socketfd, buf, MAXDATASIZE - 1, 0, (struct sockaddr *) &server, length);
+	int bytes_sent = sendto(socketfd, buf, MAXDATASIZE - 1, 0, (struct sockaddr *) &server, length);
+
+	fprintf(stdout, "number of bytes sent %d\n", bytes_sent);
 
 	/*socklen_t addrlen;
 	struct sockaddr_in host2, client;
