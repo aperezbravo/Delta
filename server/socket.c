@@ -19,7 +19,7 @@
 
 #define BACKLOG 10   // how many pending connections queue will hold
 
-#define MAXDATASIZE 100 //number of bytes
+#define MAXDATASIZE 100//number of bytes
 
 
 int main(void)
